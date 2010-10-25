@@ -8,6 +8,8 @@ Created by dorkitude on 2010-10-25.
 
 import sys, os
 import getopt
+import python_memcached_fork as memcache
+
 
 help_message = '''
 Use
@@ -45,8 +47,13 @@ def main(argv=None):
 		return 2
 	
 	
-
-
 if __name__ == "__main__":
-    print "hi"
-    # sys.exit(main())
+    print "-------------------------------"
+    print "memcache: adorable mode engaged"
+    print "-------------------------------"
+    print ""
+    print "start doing stuff, or type 'help()' to get some help:"
+
+
+def help():
+    print "well at least the help() function works!!!"
