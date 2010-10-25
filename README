@@ -1,8 +1,4 @@
 run with:
-  ./interactive_memcached.py
+  ./run.py
 or:
-  python interactive_memcached.py
-
-
-license:
-  http://creativecommons.org/licenses/by/3.0/
+  python run.py
