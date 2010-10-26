@@ -8,7 +8,7 @@ Created by dorkitude on 2010-10-25.
 
 import sys, os
 import getopt
-import python_memcached_fork as memcache
+import python_memcached_fork.memcache as memcache
 
 
 help_message = '''
@@ -18,42 +18,23 @@ Use
 # this line forces python into adorable mode:
 os.environ['PYTHONINSPECT'] = '1'
 
-class Usage(Exception):
-	def __init__(self, msg):
-		self.msg = msg
+    
+def show_startup_text():
+    f = open('STARTUP')
+    print "".join(f.readlines())
+    f.close() 
 
-
-def main(argv=None):
-	if argv is None:
-		argv = sys.argv
-	try:
-		try:
-			opts, args = getopt.getopt(argv[1:], "ho:v", ["help", "output="])
-		except getopt.error, msg:
-			raise Usage(msg)
-	
-		# option processing
-		for option, value in opts:
-			if option == "-v":
-				verbose = True
-			if option in ("-h", "--help"):
-				raise Usage(help_message)
-			if option in ("-o", "--output"):
-				output = value
-	
-	except Usage, err:
-		print >> sys.stderr, sys.argv[0].split("/")[-1] + ": " + str(err.msg)
-		print >> sys.stderr, "\t for help use --help"
-		return 2
-	
-	
-if __name__ == "__main__":
-    print "-------------------------------"
-    print "memcache: adorable mode engaged"
-    print "-------------------------------"
-    print ""
-    print "start doing stuff, or type 'help()' to get some help:"
-
+def get_client():
+    return memcache.Client(['127.0.0.1:11211'], debug=0)
 
 def help():
-    print "well at least the help() function works!!!"
+    f = open('USAGE')
+    print "".join(f.readlines())
+    f.close()
+    
+    
+if __name__ == "__main__":
+    show_startup_text()
+    ac = get_client()
+    
+    

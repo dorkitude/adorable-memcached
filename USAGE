@@ -1,0 +1,22 @@
+
+-----
+USAGE
+-----
+
+an adorable meacache client called 'ac' is ready to go when adorable first loads..
+use it thusly:
+
+
+    ac.set("some_key", "Some value")
+    print ac.get("some_key")
+
+    ac.set("another_key", 3)
+    
+    ac.delete("another_key")
+    print ac.get("another_key")
+    
+    ac.set("key", "1")   # note that the key used for incr/decr must be a string.
+    
+    
+    ac.incr("key")
+    ac.decr("key")
