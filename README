@@ -1,4 +1,5 @@
 -----------------------------------
+
 checkout like this:
   git clone --recursive git://github.com/dorkitude/adorable-memcached.git
 
@@ -7,4 +8,8 @@ run with:
 or:
   python run.py
 
+
+go here for a screenshot of ac in action:
+  http://drktd.com/30JG
+  
 -----------------------------------
