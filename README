@@ -1,6 +1,6 @@
 -----------------------------------
 checkout like this:
-git clone --recursive git://github.com/dorkitude/adorable-memcached.git
+  git clone --recursive git://github.com/dorkitude/adorable-memcached.git
 
 run with:
   ./run.py
