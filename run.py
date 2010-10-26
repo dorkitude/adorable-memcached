@@ -12,7 +12,7 @@ import python_memcached_fork.memcache as memcache
 os.environ['PYTHONINSPECT'] = '1'
 
 SETTINGS = {
-    'host' : '127.0.0.1:11211'
+    'hosts' : [ '127.0.0.1:11211' ]
 }
 
     
@@ -22,7 +22,7 @@ def show_startup_text():
     f.close() 
 
 def get_client():
-    return memcache.Client([ SETTINGS['host'] ], debug=0)
+    return memcache.Client(SETTINGS['hosts'], debug=0)
 
 def help():
     f = open('USAGE')

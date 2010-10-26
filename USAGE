@@ -1,22 +1,26 @@
+          _______  _______  _______  _______ 
+|\     /|(  ____ \(  ___  )(  ____ \(  ____ \
+| )   ( || (    \/| (   ) || (    \/| (    \/
+| |   | || (_____ | (___) || |      | (__    
+| |   | |(_____  )|  ___  || | ____ |  __)   
+| |   | |      ) || (   ) || | \_  )| (      
+| (___) |/\____) || )   ( || (___) || (____/\
+(_______)\_______)|/     \|(_______)(_______/
+                                             
+an adorable_memcached client called 'ac' is ready to go when adorable first loads..
 
------
-USAGE
------
+you can use it thusly:
 
-an adorable meacache client called 'ac' is ready to go when adorable first loads..
-use it thusly:
+        ac.set("some_key", "Some value")
+        print ac.get("some_key")
 
-
-    ac.set("some_key", "Some value")
-    print ac.get("some_key")
-
-    ac.set("another_key", 3)
+        ac.set("another_key", 3)
     
-    ac.delete("another_key")
-    print ac.get("another_key")
+        ac.delete("another_key")
+        print ac.get("another_key")
     
-    ac.set("key", "1")   # note that the key used for incr/decr must be a string.
+        ac.set("key", "1")   # note that the key used for incr/decr must be a string.
     
+        ac.incr("key")
+        ac.decr("key")
     
-    ac.incr("key")
-    ac.decr("key")
