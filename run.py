@@ -1,22 +1,19 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-interactive_memcached.py
-
+adorable_memcached
 Created by dorkitude on 2010-10-25.
 """
 
-import sys, os
-import getopt
+import os
 import python_memcached_fork.memcache as memcache
 
-
-help_message = '''
-Use
-'''
-
-# this line forces python into adorable mode:
+# this line forces python into adorable mode (referred to by some as 'interactive mode')
 os.environ['PYTHONINSPECT'] = '1'
+
+SETTINGS = {
+    'host' : '127.0.0.1:11211'
+}
 
     
 def show_startup_text():
@@ -25,7 +22,7 @@ def show_startup_text():
     f.close() 
 
 def get_client():
-    return memcache.Client(['127.0.0.1:11211'], debug=0)
+    return memcache.Client([ SETTINGS['host'] ], debug=0)
 
 def help():
     f = open('USAGE')
