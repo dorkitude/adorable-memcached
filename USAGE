@@ -1,3 +1,4 @@
+
           _______  _______  _______  _______ 
 |\     /|(  ____ \(  ___  )(  ____ \(  ____ \
 | )   ( || (    \/| (   ) || (    \/| (    \/
@@ -7,6 +8,7 @@
 | (___) |/\____) || )   ( || (___) || (____/\
 (_______)\_______)|/     \|(_______)(_______/
                                              
+
 an adorable_memcached client called 'ac' is ready to go when adorable first loads..
 
 you can use it thusly:
@@ -23,4 +25,5 @@ you can use it thusly:
     
         ac.incr("key")
         ac.decr("key")
+    
     

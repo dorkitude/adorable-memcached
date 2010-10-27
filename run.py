@@ -77,12 +77,14 @@ def show_startup_text():
 def get_client(settings):
     return AdorableClient(settings)
 
-def help():
+def show_help():
     f = open('USAGE')
     print "".join(f.readlines())
     f.close()
     
-    
+help = show_help    
+reset = show_startup_text
+
 if __name__ == "__main__":
     show_startup_text()
     ac = get_client(SETTINGS)
