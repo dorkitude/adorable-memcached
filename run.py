@@ -22,9 +22,6 @@ SETTINGS = {
 
 
 
-
-
-
 # if we're in php_mode, make sure the keys get hashed in php style    
 if SETTINGS['php_mode']:
     print ""
@@ -38,6 +35,10 @@ if SETTINGS['php_mode']:
         return (binascii.crc32(key) >> 16) & 0x7fff # borrowed from http://groups.google.com/group/memcached/msg/7bb75a026c44ec43
     memcache.serverHashFunction = php_hash
     
+    
+def raw(input):
+    print "Tryme"
+    return input
 
 class AdorableClient(memcache.Client):
     """docstring for AdorableMemcache"""
@@ -51,15 +52,23 @@ class AdorableClient(memcache.Client):
             unpickler = pickle.Unpickler
         
         super(AdorableClient, self).__init__(servers=settings['hosts'], pickler=pickler, unpickler=unpickler)
-        
 
 class AdorablePicklerPHP(pickle.Pickler):
     """docstring for AdorablePicklerPHP"""
-    dump = PHPSerialize().serialize
-    
-class AdorableUnpicklerPHP(pickle.Unpickler):
+    def dump(self, obj):
+        self.write(PHPSerialize().serialize(obj))
+
+class AdorableUnpicklerPHP(object):
     """docstring for AdorableUnpicklerPHP"""
-    load = PHPUnserialize().unserialize
+    def __init__(self, arg):
+        super(AdorableUnpicklerPHP, self).__init__()
+        # print type(arg)
+        # print arg.getvalue()
+        self.inputString = arg.getvalue()
+
+    def load(self):
+        print "unserializing: %s" % self.inputString
+        return PHPUnserialize().unserialize(self.inputString)
 
 def show_startup_text():
     f = open('STARTUP')
@@ -78,3 +87,13 @@ def help():
 if __name__ == "__main__":
     show_startup_text()
     ac = get_client(SETTINGS)
+    # 
+    # 
+    # print "---"
+    # 
+    # ac.set('dicto', {'key' : 'value'})
+    # ac.set('listo', [1,2,3,4,5,'why'])
+    # 
+    # print "what i get back for dicto is %s" % ac.get('dicto')
+    # print "what i get back for listo is %s" % ac.get('listo')
+    # 
