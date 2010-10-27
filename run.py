@@ -21,7 +21,6 @@ SETTINGS = {
 }
 
 
-
 # if we're in php_mode, make sure the keys get hashed in php style    
 if SETTINGS['php_mode']:
     print ""
