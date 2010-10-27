@@ -9,9 +9,9 @@
 (_______)\_______)|/     \|(_______)(_______/
                                              
 
-an adorable_memcached client called 'ac' is ready to go when adorable first loads..
+an AdorableClient called 'ac' is ready to go when adorable first loads..
 
-you can use it thusly:
+you can use it like this:
 
         ac.set("some_key", "Some value")
         print ac.get("some_key")
@@ -27,3 +27,4 @@ you can use it thusly:
         ac.decr("key")
     
     
+        
