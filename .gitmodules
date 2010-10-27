@@ -1,6 +1,3 @@
 [submodule "python_memcached_fork"]
 	path = python_memcached_fork
 	url = git://github.com/dorkitude/python-memcached.git
-[submodule "phpserialize_fork"]
-	path = phpserialize_fork
-	url = git://github.com/dorkitude/phpserialize.git
